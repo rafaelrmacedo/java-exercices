@@ -8,10 +8,22 @@ Faça com que o usuário digite o valor de n
  */
 package exercices.Constructor_Method_Exercices.AulaEncopsulamento.src.fibonacci;
 
-/**
- *
- * @author 20201sg.inf_i0035
- */
+
 public class fibonacci {
-    
+    private int n;
+    private float mostrarSerie;
+
+    public fibonacci(int n){
+        this.n = n;
+    }
+
+    public void setNumero (int n){
+        this.n = n;
+    }
+    public int getNumero(){
+        return n;
+    }
+
+
+
 }

@@ -19,7 +19,7 @@ public class carro {
     private float tempoRodado; //Em horas
     private float velocidadeMedia;
     
-    
+    //metodo construtor abaixo
     public carro (String modelo, int anoFab, String dono, float distancia, float tempoRodado){
         this.modelo = modelo;
         this.anoFab = anoFab;
@@ -45,9 +45,9 @@ public class carro {
     }
     public String getDono(){
         return dono;
-    }                                               //d
-    public void setDistancia (float distancia){   //v   t
-        this.distancia = distancia;
+    }                                               
+    public void setDistancia (float distancia){       //d
+        this.distancia = distancia;                 //v   t
     }
     public float geDistancia(){
         return distancia;
