@@ -40,6 +40,8 @@ public class BankAccount {
         return balance;
     }
 
+    //para sacar o dinheiro
+
     public void withDraw(int value){
         if (balance < 0){
             System.out.println("Insufficient funds!");
@@ -48,6 +50,8 @@ public class BankAccount {
         }
     }
 
+    // depositar o dinheiro
+    
     public void deposit(int value){
         balance = balance + value;
     }

@@ -1,10 +1,41 @@
+/* 4– Crie no programa principal 2 contas em seu nome, uma poupança e uma corrente. (Para
+isso crie 2 objetos diferentes já passando seu nome e o número da conta. */
 package exercices.Heritage_Exercices;
+
+import java.util.Scanner;
 
 public class Main{
     public static void main(String[] args) {
-        BankAccount bc1 = new BankAccount("Rafael", 220304, 0);
+        CheckingAccount checkingAccount = new CheckingAccount("Rafa", 34567, 1000, 20);
+        SavingsAccount savingAccount = new SavingsAccount("Rafa", 34568, 1000, 1050, 0.05f);
+        Scanner in = new Scanner(System.in);
 
-        bc1.deposit(1000);
-        System.out.print("A quantidade do deposito foi de %d reais", bc1.deposit(1000));
+        System.out.println("Choose a option below:");
+        System.out.println("1 - Checking Account");
+        System.out.println("2 - Savings Account");
+        int number = in.nextInt();
+
+        if (number == 1){
+            System.out.println("1 - Deposit");
+            System.out.println("2 - Withdraw");
+            System.out.println("3 - Show Balance");
+            System.out.println("4 - Generate Income");
+            System.out.println("5 - Back"); 
+
+            switch (number){
+                case 1:
+                CheckingAccount checkingAccount2 = new deposit();
+                checkingAccount.deposit(100);
+            }
+            
+        } else {
+            System.out.println("1 - Deposit");
+            System.out.println("2 - Withdraw");
+            System.out.println("3 - Show Balance");
+            System.out.println("4 - Execute Maintenance");
+            System.out.println("5 - Change Maintenance Value");
+            System.out.println("6 - Back"); 
+        }
+        
     }  
 }

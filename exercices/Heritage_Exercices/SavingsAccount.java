@@ -18,6 +18,8 @@ public class SavingsAccount extends BankAccount{
     private float income;
     private float totalIncome; 
 
+    
+
     public SavingsAccount(String customer, int accountNumber, float balance, float totalIncome, float income) {
         super(income, totalIncome);
         this.income = income;
