@@ -3,14 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package exercicioanimais;
+package exercices.AnimaIsExercice;
 
-/**
- *
- * @author 20201sg.inf_i0035
- */
-public class Mammal extends Animal{
-    private String food;
+public abstract class Mammal extends Animal{
+    String food;
 
     public Mammal(String name, String color, float height, int pawNumber, String environment, float velocity) {
         super(name, color, height, pawNumber, environment, velocity);

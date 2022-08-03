@@ -3,12 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package exercicioanimais;
+package exercices.AnimaIsExercice;
 
-/**
- *
- * @author 20201sg.inf_i0035
- */
 public abstract class Animal {
     private String name;
     private float height;
