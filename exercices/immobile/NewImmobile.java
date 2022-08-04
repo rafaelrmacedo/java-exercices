@@ -8,5 +8,13 @@ public class NewImmobile extends Immobile{
         super(color, builtArea, value);
         this.addionalValue = addionalValue;
     }
+
+    public void calculateValueOfSale(int value){
+
+        value = value + addionalValue;
+
+        System.out.println(value);
+
+    }
     
 }

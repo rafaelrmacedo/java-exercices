@@ -9,4 +9,12 @@ public class UsageImmobile extends Immobile{
         this.discount = discount;
     }
 
+    public void calculateValueOfSale(int value){
+
+        value = value - discount;
+
+        System.out.println(value);
+
+    }
+
 }

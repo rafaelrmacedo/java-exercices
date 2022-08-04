@@ -20,5 +20,12 @@ package exercices.immobile;
 public class Main {
     public static void main(String[] args) {
         
+        Immobile immobile = new Immobile("grey", 180, 300000);
+        UsageImmobile usageImmobile = new UsageImmobile("green", 160, 200000, 50000);
+        NewImmobile newImmobile = new NewImmobile("white", 200, 380000, 20000);
+
+        immobile.calculateValueOfSale(300000);
+        usageImmobile.calculateValueOfSale(200000);
+        newImmobile.calculateValueOfSale(380000);
     }
 }
