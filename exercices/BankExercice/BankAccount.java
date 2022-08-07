@@ -1,17 +1,4 @@
-/* 1– Crie uma classe ContaBancaria com as seguintes características
-a) cliente: String
-b) número da conta: inteiro
-c) saldo: float
 
-Métodos da ContaBancária:
-
-a) Ao criar uma conta já deve ter um cliente e um número (Método Construtor), uma
-conta deve iniciar com saldo em Zero.
-b) Gere métodos Getters para os 3 atributos acima.
-a) sacar(): este método deve receber um parâmetro (número inteiro), ao sacar deve ser
-verificado o saldo, o saldo não pode ficar negativo.
-b) depositar(): este método deve receber um parâmetro (número inteiro) e incrementar
-o saldo. */
 package exercices.BankExercice;
 
 public class BankAccount {
@@ -21,6 +8,7 @@ public class BankAccount {
 
     public BankAccount(String customer, int accountNumber,float balance) {
         balance = 0;
+        this.balance = balance;
         this.customer = customer;
         this.accountNumber = accountNumber;
     }
