@@ -21,12 +21,6 @@ public class Main{
             System.out.println("3 - Show Balance");
             System.out.println("4 - Generate Income");
             System.out.println("5 - Back"); 
-
-            switch (number){
-                case 1:
-                CheckingAccount checkingAccount2 = new deposit();
-                checkingAccount.deposit(100);
-            }
             
         } else {
             System.out.println("1 - Deposit");

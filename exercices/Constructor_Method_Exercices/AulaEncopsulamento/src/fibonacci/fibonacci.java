@@ -11,7 +11,7 @@ package exercices.Constructor_Method_Exercices.AulaEncopsulamento.src.fibonacci;
 
 public class fibonacci {
     private int n;
-    private float mostrarSerie;
+    //private float mostrarSerie;
 
     public fibonacci(int n){
         this.n = n;

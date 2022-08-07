@@ -10,7 +10,6 @@ Faça com que o usuário possa digitar a Descrição, quantidade comprada de um 
 preço por item
  */
 package exercices.Constructor_Method_Exercices.AulaEncopsulamento.src.fatura;
-import java.util.Scanner;
 
 public class fatura {
     private String descricao;

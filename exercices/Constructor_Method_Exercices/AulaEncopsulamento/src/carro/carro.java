@@ -53,7 +53,7 @@ public class carro {
         return distancia;
     }
     public void setTempo (float tempo){
-        this.tempoRodado = tempoRodado;
+        //this.tempoRodado = tempoRodado;
     }
     public float getTempo(){
         return tempoRodado;
