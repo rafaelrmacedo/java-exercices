@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class Main{
     public static void main(String[] args) {
-        CheckingAccount checkingAccount = new CheckingAccount("Rafa", 34567, 1000, 20);
-        SavingsAccount savingAccount = new SavingsAccount("Rafa", 34568, 1000, 1050, 0.05f);
+        //CheckingAccount checkingAccount = new CheckingAccount("Rafa", 34567, 1000, 20);
+        //SavingsAccount savingAccount = new SavingsAccount("Rafa", 34568, 1000, 1050, 0.05f);
         Scanner in = new Scanner(System.in);
 
         System.out.println("Choose a option below:");
