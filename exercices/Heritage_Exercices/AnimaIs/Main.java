@@ -13,7 +13,7 @@ dessas classes)
 Construa no programa principal no mínimo um peixe, um Urso e um gato, depois imprima as
 características deles.
  */
-package exercices.AnimaIsExercice;
+package exercices.Heritage_Exercices.AnimaIs;
 
 public class Main {
 

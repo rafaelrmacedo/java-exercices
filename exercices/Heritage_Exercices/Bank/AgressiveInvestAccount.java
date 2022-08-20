@@ -1,4 +1,4 @@
-package exercices.BankExercice;
+package exercices.Heritage_Exercices.Bank;
 
 public class AgressiveInvestAccount extends InvestAccount{
 

@@ -18,7 +18,7 @@ Crie métodos getters e setter para todos os atributos, obedecendo a seguinte re
 
 Crie no programa principal 1 casa de cada tipo. */
 
-package exercices.immobile;
+package exercices.Heritage_Exercices.Immobile;
 
 public class Immobile {
 

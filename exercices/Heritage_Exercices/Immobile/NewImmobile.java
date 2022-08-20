@@ -1,4 +1,4 @@
-package exercices.immobile;
+package exercices.Heritage_Exercices.Immobile;
 
 public class NewImmobile extends Immobile{
     

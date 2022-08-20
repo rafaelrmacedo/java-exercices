@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package exercices.AnimaIsExercice;
+package exercices.Heritage_Exercices.AnimaIs;
 
 public abstract class Mammal extends Animal{
     String food;

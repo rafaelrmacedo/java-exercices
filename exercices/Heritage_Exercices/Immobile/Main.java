@@ -16,7 +16,7 @@ Caso modifique a área construída o valor do imóvel deve mudar proporcionalmen
 A casa tinha 100 metros quadrados, aumentou para 110 metros, a área aumentou 10%, então
 o valor também deve aumentar em 10%.
 Crie no programa principal 1 casa de cada tipo. */
-package exercices.immobile;
+package exercices.Heritage_Exercices.Immobile;
 public class Main {
     public static void main(String[] args) {
         

@@ -6,7 +6,7 @@ d) perderRendimento de ContaInvestimento perde 1% no saldo
 e) perderRendinentos de ContaInvestimento agressivo perde 2% no saldo
 f) ficarRico acrescenta R$ 1Milhão no saldo
 g) ficarPobre zera o saldo. */
-package exercices.BankExercice;
+package exercices.Heritage_Exercices.Bank;
 
 public class Main{
     public static void main(String[] args) {

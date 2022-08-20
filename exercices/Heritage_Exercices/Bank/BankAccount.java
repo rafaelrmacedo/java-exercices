@@ -1,5 +1,5 @@
 
-package exercices.BankExercice;
+package exercices.Heritage_Exercices.Bank;
 
 public class BankAccount {
     private String customer;
