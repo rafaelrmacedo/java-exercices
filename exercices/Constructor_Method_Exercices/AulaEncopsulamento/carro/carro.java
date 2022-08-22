@@ -5,7 +5,7 @@ b) Crie um método construtor que receba as características da letra a
 c) Para cada variável crie métodos get e set.
 d) Este carro deve possui um método chamado getVelocidadeMédia, este método deve
 calcular e retornar qual a velocidade média que o carro andou. */
-package exercices.Constructor_Method_Exercices.AulaEncopsulamento.src.carro;
+package exercices.Constructor_Method_Exercices.AulaEncopsulamento.carro;
 
 /**
  *

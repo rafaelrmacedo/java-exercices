@@ -6,7 +6,7 @@ c) Métodos get e set para n
 d) Um método mostrarSérie, este método deve mostrar a série com n algarismos
 Faça com que o usuário digite o valor de n
  */
-package exercices.Constructor_Method_Exercices.AulaEncopsulamento.src.fibonacci;
+package exercices.Constructor_Method_Exercices.AulaEncopsulamento.fibonacci;
 
 
 public class fibonacci {

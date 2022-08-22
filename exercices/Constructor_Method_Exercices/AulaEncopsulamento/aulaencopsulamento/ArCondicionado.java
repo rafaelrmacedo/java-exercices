@@ -6,7 +6,7 @@ a) O usuário só consegue setar a temperatura entre 18 e 30 graus.
 Crie no mínimo 3 ares-condicionados, seta a temperatura dos 3 e coloque uma localização em
 cada um, após imprima a temperatura de cada ar-condicionado com a sua localização.
  */
-package exercices.Constructor_Method_Exercices.AulaEncopsulamento.src.aulaencopsulamento;
+package exercices.Constructor_Method_Exercices.AulaEncopsulamento.aulaencopsulamento;
 
 /**
  *

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package exercices.Constructor_Method_Exercices.AulaEncopsulamento.src.fatura;
+package exercices.Constructor_Method_Exercices.AulaEncopsulamento.fatura;
 
 /**
  *

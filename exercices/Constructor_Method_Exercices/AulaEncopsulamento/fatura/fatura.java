@@ -9,7 +9,7 @@ da fatura total como um double
 Faça com que o usuário possa digitar a Descrição, quantidade comprada de um item e o
 preço por item
  */
-package exercices.Constructor_Method_Exercices.AulaEncopsulamento.src.fatura;
+package exercices.Constructor_Method_Exercices.AulaEncopsulamento.fatura;
 
 public class fatura {
     private String descricao;
