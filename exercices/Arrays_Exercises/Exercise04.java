@@ -16,24 +16,25 @@ public class Exercise04 {
             int average = 0;
             int classGrades = 0;
 
-            for(int i = 0; i < 10; i++){
-                System.out.printf("Type a grade for the student number %d: \n", i);
+            for(int i = 1; i <= 10; i++){
+                System.out.println("Type a grade for a student: ");
                 grades[i] = input.nextInt();
                 
                 classGrades = classGrades + grades[i];
 
                 if(grades[i] > grades[i--]){
                     biggestGrade = grades[i];
-                } else {
+                } 
+                if (grades[i] < grades[i--]){
                     lowestGrade = grades[i];
                 }
             }
 
             average = classGrades / 10;
 
-            System.out.printf("Biggest grade: %d", biggestGrade);
-            System.out.printf("Lowest grade: %d", lowestGrade);
-            System.out.printf("Average class grade: %d", average);
+            System.out.printf("Biggest class grade: %d \n", biggestGrade);
+            System.out.printf("Lowest class grade: %d \n", lowestGrade);
+            System.out.printf("Average class grade: %d \n", average);
         }
     }
 
