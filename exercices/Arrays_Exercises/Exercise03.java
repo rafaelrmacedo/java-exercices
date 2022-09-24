@@ -4,7 +4,7 @@
     superior a 6 estão aprovados Liste o total de alunos aprovados , o total de alunos em
     recuperação e os reprovados.
     Imprima as notas
- */
+*/
 
 import java.util.Scanner;
 
