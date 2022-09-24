@@ -12,20 +12,20 @@ public class Exercise04 {
         try (Scanner input = new Scanner(System.in)) {
             int[] grades = new int[10]; //array w/ 10 positions
             int biggestGrade = 0;
-            int lowestGrade = 0;
+            int lowestGrade = 10;
             int average = 0;
             int classGrades = 0;
 
-            for(int i = 1; i <= 10; i++){
-                System.out.println("Type a grade for a student: ");
+            for(int i = 1; i <= grades.length; i++){
+                System.out.println("Type a grade for a student number: ");
                 grades[i] = input.nextInt();
                 
                 classGrades = classGrades + grades[i];
 
-                if(grades[i] > grades[i--]){
+                if(grades[i] > biggestGrade){
                     biggestGrade = grades[i];
                 } 
-                if (grades[i] < grades[i--]){
+                if (grades[i] < lowestGrade){
                     lowestGrade = grades[i];
                 }
             }

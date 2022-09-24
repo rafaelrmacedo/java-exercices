@@ -12,11 +12,5 @@ public class Exercise05 {
     Scanner input = new Scanner (System.in);
     int guess;
 
-    while(guess )
-        for(int i = 0; i <= numbers.length; i++){
-
-        }
-
-
     }
 }
