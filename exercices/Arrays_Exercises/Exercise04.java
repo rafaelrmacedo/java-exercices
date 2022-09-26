@@ -17,7 +17,7 @@ public class Exercise04 {
             int classGrades = 0;
 
             for(int i = 1; i <= grades.length; i++){
-                System.out.println("Type a grade for a student number: ");
+                System.out.println("Type a grade for a student: ");
                 grades[i] = input.nextInt();
                 
                 classGrades = classGrades + grades[i];
