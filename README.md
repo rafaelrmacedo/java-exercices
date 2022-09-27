@@ -1,3 +1,3 @@
-# java-exercices
+# java-exercises
 
 Exercicios da escola utilizando Java
