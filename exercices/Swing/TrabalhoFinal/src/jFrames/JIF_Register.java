@@ -3,8 +3,11 @@ package jFrames;
 import java.sql.Connection;
 import java.sql.SQLException;
 import bean.RegisterIntoDB;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import view.CalculateSituation;
 
@@ -12,6 +15,8 @@ public class JIF_Register extends javax.swing.JInternalFrame {
 
     RegisterIntoDB registerDB = new RegisterIntoDB();
     CalculateSituation calculator = new CalculateSituation();
+    
+    DateFormat format = new SimpleDateFormat("yyyy/MM/dd");
     
     public JIF_Register() {
         initComponents();
@@ -36,7 +41,7 @@ public class JIF_Register extends javax.swing.JInternalFrame {
         BirthLabel = new javax.swing.JLabel();
         ExitButton = new javax.swing.JButton();
         CourseField = new javax.swing.JComboBox<>();
-        BirthDateField = new javax.swing.JFormattedTextField();
+        DateChooser = new com.toedter.calendar.JDateChooser();
 
         RegisterIntoDbButton.setText("Register Into Database");
         RegisterIntoDbButton.addActionListener(new java.awt.event.ActionListener() {
@@ -51,9 +56,31 @@ public class JIF_Register extends javax.swing.JInternalFrame {
             }
         });
 
+        MathGradeField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MathGradeFieldActionPerformed(evt);
+            }
+        });
+        MathGradeField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                MathGradeFieldKeyTyped(evt);
+            }
+        });
+
+        HistoryGradeField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                HistoryGradeFieldKeyTyped(evt);
+            }
+        });
+
         FisicsGradeField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FisicsGradeFieldActionPerformed(evt);
+            }
+        });
+        FisicsGradeField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                FisicsGradeFieldKeyTyped(evt);
             }
         });
 
@@ -80,7 +107,7 @@ public class JIF_Register extends javax.swing.JInternalFrame {
 
         CourseField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select a course", "Técnico Informática", "Técnico Eletro Mecânica", "Técnico Química" }));
 
-        BirthDateField.setText("  /  /");
+        DateChooser.setDateFormatString("yyyy/MM/dd");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,8 +132,10 @@ public class JIF_Register extends javax.swing.JInternalFrame {
                             .addComponent(NameField)
                             .addComponent(FisicsGradeField)
                             .addComponent(HistoryGradeField)
-                            .addComponent(CourseField, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BirthDateField)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(CourseField, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(DateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(RegisterIntoDbButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -124,10 +153,13 @@ public class JIF_Register extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EmailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(EmailLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BirthLabel)
-                    .addComponent(BirthDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(BirthLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(DateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CourseLabel)
@@ -144,7 +176,7 @@ public class JIF_Register extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(FisicsGradeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(FisicsGradeLabel))
-                .addGap(32, 32, 32)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegisterIntoDbButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -165,7 +197,7 @@ public class JIF_Register extends javax.swing.JInternalFrame {
     private void RegisterIntoDbButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterIntoDbButtonActionPerformed
         registerDB.setNome(NameField.getText());
         registerDB.setEmail(EmailField.getText()); 
-        registerDB.setDataNas(BirthDateField.getText());
+        registerDB.setDataNas(DateChooser.getDate().toString());
         registerDB.setCurso(CourseField.getSelectedItem().toString()); 
         registerDB.setMatematica(Double.valueOf(MathGradeField.getText()));
         registerDB.setHistoria(Double.valueOf(HistoryGradeField.getText()));
@@ -189,12 +221,34 @@ public class JIF_Register extends javax.swing.JInternalFrame {
         System.exit(0);
     }//GEN-LAST:event_ExitButtonActionPerformed
 
+    private void MathGradeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MathGradeFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MathGradeFieldActionPerformed
+
+    private void MathGradeFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MathGradeFieldKeyTyped
+        char TestChar = evt.getKeyChar();
+        if(!(Character.isDigit(TestChar)))
+            evt.consume();
+    }//GEN-LAST:event_MathGradeFieldKeyTyped
+
+    private void HistoryGradeFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_HistoryGradeFieldKeyTyped
+        char TestChar = evt.getKeyChar();
+        if(!(Character.isDigit(TestChar)))
+            evt.consume();
+    }//GEN-LAST:event_HistoryGradeFieldKeyTyped
+
+    private void FisicsGradeFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_FisicsGradeFieldKeyTyped
+        char TestChar = evt.getKeyChar();
+        if(!(Character.isDigit(TestChar)))
+            evt.consume();
+    }//GEN-LAST:event_FisicsGradeFieldKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JFormattedTextField BirthDateField;
     private javax.swing.JLabel BirthLabel;
     private javax.swing.JComboBox<String> CourseField;
     private javax.swing.JLabel CourseLabel;
+    private com.toedter.calendar.JDateChooser DateChooser;
     private javax.swing.JTextField EmailField;
     private javax.swing.JLabel EmailLabel;
     private javax.swing.JButton ExitButton;
