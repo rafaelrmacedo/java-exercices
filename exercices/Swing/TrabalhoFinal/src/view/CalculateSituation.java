@@ -8,20 +8,20 @@ public class CalculateSituation {
     Double average;
     String situation;  
     
-    public Double CalcGrades(){
+    public Double CalcGrades(RegisterIntoDB registerDB){
         
         Double fisicsGrade = registerDB.getFisica();
         Double historyGrade = registerDB.getHistoria();
         Double mathGrade = registerDB.getMatematica();
         
-        Double average = (fisicsGrade + historyGrade + mathGrade) / 3;
+        average = (fisicsGrade + historyGrade + mathGrade) / 3;
 
         registerDB.setMedia(average);
         
         return average;
     }
     
-    public String CalcSituation(){
+    public String CalcSituation(RegisterIntoDB registerDB){
         
         if(average <= 4){
             situation = "Reprovado";

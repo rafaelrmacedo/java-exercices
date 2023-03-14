@@ -43,7 +43,7 @@
                               <Component id="CourseField" min="-2" pref="167" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="DateChooser" max="32767" attributes="0"/>
+                          <Component id="BirthDateField" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -69,17 +69,12 @@
                   <Component id="EmailField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="EmailLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="BirthLabel" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="DateChooser" pref="31" max="32767" attributes="0"/>
-                  </Group>
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="BirthLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="BirthDateField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="CourseLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="CourseField" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -200,10 +195,11 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="DateChooser">
-      <Properties>
-        <Property name="dateFormatString" type="java.lang.String" value="yyyy/MM/dd"/>
-      </Properties>
+    <Component class="javax.swing.JFormattedTextField" name="BirthDateField">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JFormattedTextField(dateFormatter)"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="dateField.setFormatterFactory(new DefaultFormatterFactory(new DateFormatter(dateFormat)));"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

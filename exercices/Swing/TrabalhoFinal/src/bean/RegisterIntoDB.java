@@ -97,7 +97,7 @@ public class RegisterIntoDB {
     }
     
     public void InsertIntoDB(Connection conn) throws SQLException{
-        String insert = "insert into Alunos(nome, email, dataNas, Curso,    Matematica, Historia, Fisica, Media, SituacaoAluno) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String insert = "insert into Alunos(nome, email, dataNas, Curso, Matematica, Historia, Fisica, Media, SituacaoAluno) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
         PreparedStatement stm = null; 
 

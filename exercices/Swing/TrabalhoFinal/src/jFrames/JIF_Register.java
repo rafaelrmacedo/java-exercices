@@ -3,20 +3,22 @@ package jFrames;
 import java.sql.Connection;
 import java.sql.SQLException;
 import bean.RegisterIntoDB;
+import connect.MySqlConnection;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
+import javax.swing.text.MaskFormatter;
 import view.CalculateSituation;
 
 public class JIF_Register extends javax.swing.JInternalFrame {
 
     RegisterIntoDB registerDB = new RegisterIntoDB();
     CalculateSituation calculator = new CalculateSituation();
-    
-    DateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+    DateFormat formatedDate = new SimpleDateFormat("yyyy/MM/dd");
+    MaskFormatter dateFormatter = new MaskFormatter("##/##/####");
     
     public JIF_Register() {
         initComponents();
@@ -41,7 +43,7 @@ public class JIF_Register extends javax.swing.JInternalFrame {
         BirthLabel = new javax.swing.JLabel();
         ExitButton = new javax.swing.JButton();
         CourseField = new javax.swing.JComboBox<>();
-        DateChooser = new com.toedter.calendar.JDateChooser();
+        BirthDateField = new JFormattedTextField(dateFormatter);
 
         RegisterIntoDbButton.setText("Register Into Database");
         RegisterIntoDbButton.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +109,7 @@ public class JIF_Register extends javax.swing.JInternalFrame {
 
         CourseField.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select a course", "Técnico Informática", "Técnico Eletro Mecânica", "Técnico Química" }));
 
-        DateChooser.setDateFormatString("yyyy/MM/dd");
+        dateField.setFormatterFactory(new DefaultFormatterFactory(new DateFormatter(dateFormat)));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -135,7 +137,7 @@ public class JIF_Register extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(CourseField, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(DateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(BirthDateField)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(RegisterIntoDbButton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -153,14 +155,11 @@ public class JIF_Register extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EmailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(EmailLabel))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(BirthLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(DateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BirthLabel)
+                    .addComponent(BirthDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CourseLabel)
                     .addComponent(CourseField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -197,16 +196,16 @@ public class JIF_Register extends javax.swing.JInternalFrame {
     private void RegisterIntoDbButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterIntoDbButtonActionPerformed
         registerDB.setNome(NameField.getText());
         registerDB.setEmail(EmailField.getText()); 
-        registerDB.setDataNas(DateChooser.getDate().toString());
+        registerDB.setDataNas(formatedDate.format(BirthDateField.getText()));
         registerDB.setCurso(CourseField.getSelectedItem().toString()); 
         registerDB.setMatematica(Double.valueOf(MathGradeField.getText()));
         registerDB.setHistoria(Double.valueOf(HistoryGradeField.getText()));
         registerDB.setFisica(Double.valueOf(FisicsGradeField.getText()));
         
-        calculator.CalcGrades();
-        calculator.CalcSituation();
+        calculator.CalcGrades(registerDB);
+        calculator.CalcSituation(registerDB);
         
-        Connection conn = null;
+        Connection conn = new MySqlConnection().getConnection();
         
         try {
             registerDB.InsertIntoDB(conn);
@@ -245,10 +244,10 @@ public class JIF_Register extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFormattedTextField BirthDateField;
     private javax.swing.JLabel BirthLabel;
     private javax.swing.JComboBox<String> CourseField;
     private javax.swing.JLabel CourseLabel;
-    private com.toedter.calendar.JDateChooser DateChooser;
     private javax.swing.JTextField EmailField;
     private javax.swing.JLabel EmailLabel;
     private javax.swing.JButton ExitButton;

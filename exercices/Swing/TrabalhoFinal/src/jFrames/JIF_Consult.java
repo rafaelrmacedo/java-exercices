@@ -1,5 +1,10 @@
 package jFrames;
 
+import java.sql.Connection;
+import connect.MySqlConnection;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
+
 
 public class JIF_Consult extends javax.swing.JInternalFrame {
 
@@ -53,7 +58,7 @@ public class JIF_Consult extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Name", "Email", "Birth Date", "Course", "Math Grade", "History Grade", "Fisics Grade", "Average Grade"
+                "Id Aluno", "Name", "Email", "Birth Date", "Course", "Math Grade", "History Grade", "Fisics Grade", "Average", "Situation"
             }
         ));
         StudentTable.addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -67,46 +72,54 @@ public class JIF_Consult extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(232, 232, 232)
+            .addComponent(jScrollPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(319, Short.MAX_VALUE)
                 .addComponent(OrderNameRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(OrderAverageRadioButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(OrderBirthRadioButton)
-                .addContainerGap(276, Short.MAX_VALUE))
+                .addGap(295, 295, 295))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
+                .addGap(82, 82, 82)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(OrderBirthRadioButton)
                     .addComponent(OrderAverageRadioButton)
                     .addComponent(OrderNameRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void OrderNameRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrderNameRadioButtonActionPerformed
+        Connection conn = new MySqlConnection().getConnection();
+        
         String orderByName = "select * from Alunos order by nome";
     }//GEN-LAST:event_OrderNameRadioButtonActionPerformed
 
     private void OrderAverageRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrderAverageRadioButtonActionPerformed
+        Connection conn = new MySqlConnection().getConnection();
+        
         String orderByAverage = "select * from Alunos order by media";
     }//GEN-LAST:event_OrderAverageRadioButtonActionPerformed
 
     private void OrderBirthRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrderBirthRadioButtonActionPerformed
+        Connection conn = new MySqlConnection().getConnection();
+        
         String orderByBirthDate = "select * from Alunos order by dataNas";
     }//GEN-LAST:event_OrderBirthRadioButtonActionPerformed
 
     private void StudentTableComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_StudentTableComponentShown
-       String selectAll = "select * from Alunos";
+        Connection conn = new MySqlConnection().getConnection();
+       
+        DefaultTableModel tblModel = (DefaultTableModel) StudentTable.getModel();
     }//GEN-LAST:event_StudentTableComponentShown
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
